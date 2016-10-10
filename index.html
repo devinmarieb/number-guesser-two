@@ -7,13 +7,13 @@
 
   </head>
   <body>
-    <input class="guess" type="input" name="guess-a-number" value="" placeholder="Enter your guess"/>
+    <input class="guess" type="number" name="guess-a-number" placeholder="Enter your guess"/>
     <button class="submit" type="button" name="submit-guess-button">Guess</button>
-    <button class="clear" type="button" name="clear-button">Clear</button>
+    <button class="clear" type="button" name="clear-button" disabled="true">Clear</button>
     <p> Your last guess was </p>
     <p class="user-guess">NaN</p>
-    <p class="guess-status">Text</p>
-    <button class="reset" type="button" name="reset-button">Reset</button>
+    <p class="guess-status">Pick a number between 1-100</p>
+    <button class="reset" type="button" name="reset-button" disabled="true">Reset</button>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="scripts.js"></script>
