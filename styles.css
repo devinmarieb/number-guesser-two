@@ -21,17 +21,11 @@ h1 {
   font-family: 'Open Sans', sans-serif;
 }
 
-.range-container {
-  display: flex;
-  justify-content: center;
-  height: 100px;
-  vertical-align: middle;
-}
-
 .guess {
   display: block;
   margin: auto;
   opacity: .5;
+  margin-top: 20px;
 }
 
 .guess-container {
