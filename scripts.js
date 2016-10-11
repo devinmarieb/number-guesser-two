@@ -1,4 +1,3 @@
-
 var userGuess = document.querySelector(".guess");
 var userGuessText = document.querySelector(".user-guess");
 var guessButton = document.querySelector(".submit");
@@ -6,21 +5,12 @@ var clearButton = document.querySelector(".clear");
 var resetButton = document.querySelector(".reset");
 var submitRangeButton = document.querySelector(".submit-range");
 var userHint = document.querySelector(".guess-status");
-<<<<<<< HEAD
-var randomNumber = Math.floor((Math.random() * 100) + 1);;
-console.log(randomNumber);
-
-$(".guess-text").css("visibility", "hidden");
-=======
 var minRange = document.querySelector(".min-guess");
 var maxRange = document.querySelector(".max-guess");
 
 var lowNumber;
 var highNumber;
-var newLowNum;
-var newHighNum;
 var randomNumber;
-var increasedRandomNumber;
 
 $(".guess-text").css("visibility", "hidden");
 
@@ -33,16 +23,11 @@ submitRangeButton.addEventListener("click", function(){
   disableRange();
   userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
 })
->>>>>>> WIPphaseThree
 
 guessButton.addEventListener("click", function(){
   enablePlayerButtons();
   checkUserGuess();
-<<<<<<< HEAD
-  checkRange();
-=======
   checkRange(lowNumber, highNumber);
->>>>>>> WIPphaseThree
   $(".guess-text").css("visibility", "visible");
 })
 
@@ -56,8 +41,6 @@ resetButton.addEventListener("click", function(){
   resetButtonDisable();
 })
 
-<<<<<<< HEAD
-=======
 function generateRandomNumber(lowNumber, highNumber){
  return Math.floor(Math.random() * (lowNumber - highNumber)) + highNumber;
 }
@@ -70,7 +53,6 @@ function getMaxUserInput(){
   return parseInt(maxRange.value);
 }
 
->>>>>>> WIPphaseThree
 function checkUserGuess(){
   var guessedNumber = parseInt(userGuess.value);
   userGuessText.innerText = guessedNumber;
@@ -79,18 +61,7 @@ function checkUserGuess(){
   } else if (guessedNumber < randomNumber){
     userHint.innerText = "That is too low";
   } else if (guessedNumber === randomNumber){
-<<<<<<< HEAD
-    userHint.innerText = "You got it!";
-  } else if (userGuessText.innerText = "NaN") {
-    userHint.innerText = "That's not a number";
-  }
-  }
-
-function checkRange(){
-  var minNumber = 1;
-  var maxNumber = 100;
       userHint.innerText = "You got it! Hit reset to play again!";
-      generateRandomNumber(lowNumber, highNumber);
     } else {
       userHint.innerText = "*ahem* That's not a number";
     }
@@ -111,11 +82,8 @@ function checkRange(){
 
 function enablePlayerButtons(){
   resetButton.disabled = false;
-  userGuess.disabled = false;
   clearButton.disabled = false;
-  $(".submit").css("opacity", 1);
   $(".reset").css("opacity", 1);
-  $(".guess").css("opacity", 1);
   $(".clear").css("opacity", 1);
 }
 
