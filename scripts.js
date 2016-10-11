@@ -6,8 +6,6 @@ var clearButton = document.querySelector(".clear");
 var resetButton = document.querySelector(".reset");
 var submitRangeButton = document.querySelector(".submit-range");
 var userHint = document.querySelector(".guess-status");
-var getMinRange = document.querySelector(".min-guess");
-var getMaxRange = document.querySelector(".max-guess");
 var randomNumber = Math.floor((Math.random() * 100) + 1);;
 console.log(randomNumber);
 
