@@ -3,17 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>Number Guesser</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mediaQuery.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
 
   </head>
   <body>
-    <input class="guess" type="input" name="guess-a-number" value="" placeholder="Enter your guess"/>
-    <button class="submit" type="button" name="submit-guess-button">Guess</button>
-    <button class="clear" type="button" name="clear-button">Clear</button>
-    <p> Your last guess was </p>
-    <p class="user-guess">NaN</p>
-    <p class="guess-status">Text</p>
-    <button class="reset" type="button" name="reset-button">Reset</button>
+    <header class="header">
+      <h1><span class="title-number">Number</span> <span class="title-guesser">Guesser</span></h1>
+    </header>
+    <section class="range-container">
+      <input class="min-guess" type="number" name="min-number" placeholder="Minimum Number"/>
+      <input class="max-guess" type="number" name="max-number" placeholder="Maximum Number"/>
+      <button class="submit-range" type="button" name="button">Submit</button>
+    </section>
+
+    <input class="guess" type="number" name="guess-a-number" disabled="true" placeholder="Enter your guess"/>
+
+    <section class="guess-container">
+      <button class="submit" type="button" name="submit-guess-button" disabled="true">Guess</button>
+      <button class="clear" type="button" name="clear-button" disabled="true">Clear</button>
+    </section>
+    <p class="guess-text"> Your last guess was </p>
+    <p class="user-guess">#</p>
+    <p class="guess-status">Submit a number range to play</p>
+    <button class="reset" type="button" name="reset-button" disabled="true">Reset</button>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="scripts.js"></script>
