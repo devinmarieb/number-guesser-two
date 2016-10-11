@@ -61,9 +61,9 @@ function checkUserGuess(){
   } else if (guessedNumber < randomNumber){
     userHint.innerText = "That is too low";
   } else if (guessedNumber === randomNumber){
-      userHint.innerText = "You got it!";
+      userHint.innerText = "You got it! Hit reset to play again!";
     } else {
-      userHint.innerText = "That's not a number";
+      userHint.innerText = "*ahem* That's not a number";
     }
   }
 
