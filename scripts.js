@@ -47,11 +47,13 @@ function checkRange(){
   var maxNumber = 100;
   var guessedNumber = parseInt(userGuess.value);
   if (guessedNumber < minNumber){
-    userGuessText.innerText = "oops!"
+    userGuessText.innerText = "oops!";
     userHint.innerText = "Guess a number between " + minNumber + " & " + maxNumber;
   } else if (guessedNumber > maxNumber){
-    userGuessText.innerText = "oops!"
+    userGuessText.innerText = "oops!";
     userHint.innerText = "Guess a number between " + minNumber + " & " + maxNumber;
+  } else if (userGuessText.innerText = "NaN") {
+    userHint.innerText = "That's not a number";
   }
 }
 
