@@ -23,11 +23,17 @@ h1 {
   font-weight: 300;
 }
 
+.range-container {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  vertical-align: middle;
+}
+
 .guess {
   display: block;
   margin: auto;
   opacity: .5;
-  margin-top: 20px;
 }
 
 .guess-container {
@@ -48,9 +54,16 @@ button {
   border-radius: 20px;
 }
 
+.submit {
+  opacity: .5
+}
 
 .clear {
   opacity: .5;
+}
+
+.submit-range {
+  text-align: center;
 }
 
 p {
