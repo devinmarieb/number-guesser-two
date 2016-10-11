@@ -1,0 +1,48 @@
+@media screen and (max-width: 750px) {
+  .header {
+    height: 50px
+  }
+
+  h1 {
+    font-size: 25pt;
+    line-height: 50px;
+  }
+
+  button {
+    width: 350px;
+    height: 25px;
+    font-size: 10pt;
+    margin: 10px;
+  }
+
+  input {
+    width: 150px;
+    height: 25px;
+    font-size: 10pt;
+    margin: 10px;
+  }
+
+  .guess {
+    width: 350px;
+  }
+
+  .range-container {
+    height: 75px;
+    margin: 30px 0;
+  }
+
+  .guess-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p {
+    font-size: 15pt;
+    margin: 10px;
+  }
+
+  .reset {
+    width: 350px;
+  }
+};
