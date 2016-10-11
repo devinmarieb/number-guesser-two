@@ -5,9 +5,9 @@ var clearButton = document.querySelector(".clear");
 var resetButton = document.querySelector(".reset");
 var submitRangeButton = document.querySelector(".submit-range");
 var userHint = document.querySelector(".guess-status");
-var randomNumber = Math.floor(Math.random()* 100);
 var getMinRange = document.querySelector(".min-guess");
 var getMaxRange = document.querySelector(".max-guess");
+
 
 generateRandomNumber();
 
@@ -34,10 +34,18 @@ resetButton.addEventListener("click", function(){
   resetButtonDisable();
 })
 
-function generateRandomNumber(){
-  var numberToGuess = randomNumber;
-  $(".guess-text").css("visibility", "hidden");
+
+
+function generateRandomNumber(getMinRange, getMaxRange){
+
+  var minRangeInt = parseInt(getMinRange.value);
+  var maxRangeInt = parseInt(getMaxRange.value);
+
+  var randomNumber = Math.floor(Math.random() * (minRangeInt - maxRangeInt)) + minRangeInt;
   console.log(randomNumber);
+  // var numberToGuess = randomNumber;
+  // $(".guess-text").css("visibility", "hidden");
+  // console.log(randomNumber);
 }
 
 function checkUserGuess(){
