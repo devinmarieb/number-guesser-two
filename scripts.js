@@ -39,8 +39,10 @@ function checkUserGuess(){
     userHint.innerText = "That is too low";
   } else if (guessedNumber === randomNumber){
     userHint.innerText = "You got it!";
+  } else if (userGuessText.innerText = "NaN") {
+    userHint.innerText = "That's not a number";
   }
-}
+  }
 
 function checkRange(){
   var minNumber = 1;
@@ -52,8 +54,6 @@ function checkRange(){
   } else if (guessedNumber > maxNumber){
     userGuessText.innerText = "oops!";
     userHint.innerText = "Guess a number between " + minNumber + " & " + maxNumber;
-  } else if (userGuessText.innerText = "NaN") {
-    userHint.innerText = "That's not a number";
   }
 }
 
