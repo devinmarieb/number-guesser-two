@@ -10,7 +10,10 @@ var maxRange = document.querySelector(".max-guess");
 
 var lowNumber;
 var highNumber;
+var newLowNum;
+var newHighNum;
 var randomNumber;
+var increasedRandomNumber;
 
 $(".guess-text").css("visibility", "hidden");
 
@@ -62,9 +65,12 @@ function checkUserGuess(){
     userHint.innerText = "That is too low";
   } else if (guessedNumber === randomNumber){
       userHint.innerText = "You got it! Hit reset to play again!";
+      generateRandomNumber(lowNumber, highNumber);
     } else {
       userHint.innerText = "*ahem* That's not a number";
     }
+    console.log(increasedRandomNumber);
+
   }
 
 function checkRange(){
@@ -77,6 +83,17 @@ function checkRange(){
   } else if (guessedNumber > maxNumber){
     userGuessText.innerText = "oops!";
     userHint.innerText = "Guess a number between " + minNumber + " & " + maxNumber;
+  }
+}
+
+function increaseNumberRange(){
+  debugger
+  var guessedNumber = parseInt(userGuess.value);
+  if (guessedNumber === randomNumber) {
+    highNumber = newHighNum = highNumber + 10;
+    lowNumber = newLowNum = lowNumber - 10;
+    console.log(newHighNum);
+    console.log(newLowNum);
   }
 }
 
