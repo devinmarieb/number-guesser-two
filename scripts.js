@@ -52,7 +52,7 @@ function checkUserGuess(){
   } else if (guessedNumber < randomNumber){
     userHint.innerText = "That is too low";
   } else if (guessedNumber === randomNumber){
-      increaseNumberRange(lowNumber, highNumber);
+      increaseNumberRange();
       userHint.innerText = "You got it! Now guess between " + lowNumber + " & " + highNumber + ", or hit reset to enter range";
       minRange.value = lowNumber;
       maxRange.value = highNumber;
@@ -63,10 +63,7 @@ function checkUserGuess(){
 
 function checkRange(){
   var guessedNumber = parseInt(userGuess.value);
-  if (guessedNumber < lowNumber){
-    userGuessText.innerText = "oops!";
-    userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
-  } else if (guessedNumber > highNumber){
+  if (guessedNumber < lowNumber || guessedNumber > highNumber){
     userGuessText.innerText = "oops!";
     userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
   }

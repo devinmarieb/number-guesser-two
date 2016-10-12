@@ -30,6 +30,14 @@ h1 {
   vertical-align: middle;
 }
 
+input {
+  width: 450px;
+  height: 50px;
+  font-size: 20pt;
+  margin: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
 .guess {
   display: block;
   margin: auto;
@@ -39,31 +47,6 @@ h1 {
 .guess-container {
     display: flex;
     justify-content: center;
-}
-
-button {
-  background-color: #D0D2D3;
-  color: #FFFFFF;
-  border: none;
-  width: 200px;
-  height: 50px;
-  font-size: 20pt;
-  margin: 5px;
-  font-family: 'Open Sans', sans-serif;
-  margin: 20px;
-  border-radius: 20px;
-}
-
-.submit {
-  opacity: .5
-}
-
-.clear {
-  opacity: .5;
-}
-
-.submit-range {
-  text-align: center;
 }
 
 p {
@@ -79,12 +62,23 @@ p {
   color: #ED458B;
 }
 
-input {
-  width: 450px;
+.submit-range {
+  text-align: center;
+  opacity: 1;
+}
+
+button {
+  background-color: #D0D2D3;
+  color: #FFFFFF;
+  border: none;
+  width: 200px;
   height: 50px;
   font-size: 20pt;
-  margin: 20px;
+  margin: 5px;
   font-family: 'Open Sans', sans-serif;
+  margin: 20px;
+  border-radius: 20px;
+  opacity: .5
 }
 
 .reset {
@@ -92,5 +86,4 @@ input {
   margin: auto;
   margin-top: 40px;
   width: 450px;
-  opacity: .5;
 }
