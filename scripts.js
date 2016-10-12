@@ -7,7 +7,6 @@ var submitRangeButton = document.querySelector(".submit-range");
 var userHint = document.querySelector(".guess-status");
 var minRange = document.querySelector(".min-guess");
 var maxRange = document.querySelector(".max-guess");
-
 var lowNumber;
 var highNumber;
 
@@ -33,7 +32,6 @@ guessButton.addEventListener("click", function(){
 })
 
 clearButton.addEventListener("click", function(){
-  userGuess.value = "";
   clearButtonDisable();
 })
 
@@ -42,28 +40,29 @@ resetButton.addEventListener("click", function(){
 })
 
 function generateRandomNumber(lowNumber, highNumber){
- return Math.floor(Math.random() * (lowNumber - highNumber)) + highNumber;
-}
-
-function checkUserGuess(){
-var guessedNumber = parseInt(userGuess.value);
-userGuessText.innerText = guessedNumber;
-if (guessedNumber > randomNumber){
-  userHint.innerText = "That is too high";
-  } else if (guessedNumber < randomNumber){
-  userHint.innerText = "That is too low";
-  } else if (guessedNumber === randomNumber){
-  increaseNumberRange();
-  winTheGame();
-  $(".guess-text").css("visibility", "hidden");
-  } else {
-  userHint.innerText = "*ahem* That's not a number";
-  }
+  return Math.floor(Math.random() * (lowNumber - highNumber)) + highNumber;
 }
 
 function rangeError(){
   if (minRange || maxRange === "") {
-  userHint.innerText = "What are you doing? Hit reset to enter a range."
+    userHint.innerText = "What are you doing? Hit reset to enter a range."
+    guessButtonDisable();
+  }
+}
+
+function checkUserGuess(){
+  var guessedNumber = parseInt(userGuess.value);
+  userGuessText.innerText = guessedNumber;
+  if (guessedNumber > randomNumber){
+    userHint.innerText = "That is too high";
+  } else if (guessedNumber < randomNumber){
+    userHint.innerText = "That is too low";
+  } else if (guessedNumber === randomNumber){
+    increaseNumberRange();
+    winTheGame();
+    $(".guess-text").css("visibility", "hidden");
+  } else {
+    userHint.innerText = "*ahem* That's not a number";
   }
 }
 
@@ -102,6 +101,7 @@ function resetButtonEnable(){
 
 function clearButtonDisable(){
   clearButton.disabled = true;
+  userGuess.value = "";
   $(".clear").css("opacity", .5);
 }
 
@@ -122,6 +122,11 @@ function disableRange(){
   submitRangeButton.disabled = true;
   minRange.disabled = true;
   maxRange.disabled = true;
+}
+
+function guessButtonDisable(){
+  guessButton.disabled = "true";
+  $(".submit").css("opacity", .5);
 }
 
 function resetProgram() {
