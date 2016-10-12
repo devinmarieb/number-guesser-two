@@ -19,15 +19,16 @@ submitRangeButton.addEventListener("click", function(){
   randomNumber = generateRandomNumber(lowNumber, highNumber);
   guessSectionEnable();
   disableRange();
+  resetButtonEnable();
   userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
   console.log(randomNumber);
 })
 
 guessButton.addEventListener("click", function(){
-  enablePlayerButtons();
+  $(".guess-text").css("visibility", "visible");
+  clearButtonEnable();
   checkUserGuess();
   checkRange();
-  $(".guess-text").css("visibility", "visible");
 })
 
 clearButton.addEventListener("click", function(){
@@ -37,7 +38,6 @@ clearButton.addEventListener("click", function(){
 
 resetButton.addEventListener("click", function(){
   resetProgram();
-  resetButtonDisable();
 })
 
 function generateRandomNumber(lowNumber, highNumber){
@@ -53,9 +53,8 @@ function checkUserGuess(){
     userHint.innerText = "That is too low";
   } else if (guessedNumber === randomNumber){
       increaseNumberRange();
-      userHint.innerText = "You got it! Now guess between " + lowNumber + " & " + highNumber + ", or hit reset to enter range";
-      minRange.value = lowNumber;
-      maxRange.value = highNumber;
+      winTheGame();
+      $(".guess-text").css("visibility", "hidden");
     } else {
       userHint.innerText = "*ahem* That's not a number";
     }
@@ -68,6 +67,13 @@ function checkRange(){
     userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
   }
 }
+function winTheGame(){
+  userHint.innerText = "You got it! Now guess between " + lowNumber + " & " + highNumber + ", or hit reset to enter range";
+  minRange.value = lowNumber;
+  maxRange.value = highNumber;
+  userGuess.value = "";
+  clearButtonDisable();
+}
 
 function increaseNumberRange(){
   var guessedNumber = parseInt(userGuess.value);
@@ -76,17 +82,15 @@ function increaseNumberRange(){
     lowNumber = lowNumber - 10;
     randomNumber = generateRandomNumber(lowNumber, highNumber);
     userHint.innerText = "You got it! Now guess between " + lowNumber + " & " + highNumber + ", or hit reset to enter range";
-    console.log(highNumber);
     console.log(lowNumber);
+    console.log(highNumber);
     console.log(randomNumber);
   }
 }
 
-function enablePlayerButtons(){
+function resetButtonEnable(){
   resetButton.disabled = false;
-  clearButton.disabled = false;
   $(".reset").css("opacity", 1);
-  $(".clear").css("opacity", 1);
 }
 
 function clearButtonDisable(){
@@ -94,16 +98,16 @@ function clearButtonDisable(){
   $(".clear").css("opacity", .5);
 }
 
+function clearButtonEnable(){
+  clearButton.disabled = false;
+  $(".clear").css("opacity", 1);
+}
+
 function guessSectionEnable(){
   guessButton.disabled = false;
   userGuess.disabled = false;
   $(".guess").css("opacity", 1);
   $(".submit").css("opacity", 1);
-}
-
-function resetButtonDisable(){
-  resetButton.disabled = true;
-  $(".reset").css("opacity", .5);
 }
 
 function disableRange(){
@@ -115,4 +119,6 @@ function disableRange(){
 
 function resetProgram() {
   location.reload();
+  resetButton.disabled = true;
+  $(".reset").css("opacity", .5);
 }
