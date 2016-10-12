@@ -22,6 +22,7 @@ submitRangeButton.addEventListener("click", function(){
   resetButtonEnable();
   userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
   console.log(randomNumber);
+  rangeError();
 })
 
 guessButton.addEventListener("click", function(){
@@ -45,20 +46,26 @@ function generateRandomNumber(lowNumber, highNumber){
 }
 
 function checkUserGuess(){
-  var guessedNumber = parseInt(userGuess.value);
-  userGuessText.innerText = guessedNumber;
-  if (guessedNumber > randomNumber){
-    userHint.innerText = "That is too high";
+var guessedNumber = parseInt(userGuess.value);
+userGuessText.innerText = guessedNumber;
+if (guessedNumber > randomNumber){
+  userHint.innerText = "That is too high";
   } else if (guessedNumber < randomNumber){
-    userHint.innerText = "That is too low";
+  userHint.innerText = "That is too low";
   } else if (guessedNumber === randomNumber){
-      increaseNumberRange();
-      winTheGame();
-      $(".guess-text").css("visibility", "hidden");
-    } else {
-      userHint.innerText = "*ahem* That's not a number";
-    }
+  increaseNumberRange();
+  winTheGame();
+  $(".guess-text").css("visibility", "hidden");
+  } else {
+  userHint.innerText = "*ahem* That's not a number";
   }
+}
+
+function rangeError(){
+  if (minRange || maxRange === "") {
+  userHint.innerText = "What are you doing? Hit reset to enter a range."
+  }
+}
 
 function checkRange(){
   var guessedNumber = parseInt(userGuess.value);
