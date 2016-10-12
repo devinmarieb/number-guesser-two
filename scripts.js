@@ -14,8 +14,8 @@ var highNumber;
 $(".guess-text").css("visibility", "hidden");
 
 submitRangeButton.addEventListener("click", function(){
-  lowNumber = getMinUserInput();
-  highNumber = getMaxUserInput();
+  lowNumber = parseInt(minRange.value);
+  highNumber = parseInt(maxRange.value);
   randomNumber = generateRandomNumber(lowNumber, highNumber);
   guessSectionEnable();
   disableRange();
@@ -26,7 +26,7 @@ submitRangeButton.addEventListener("click", function(){
 guessButton.addEventListener("click", function(){
   enablePlayerButtons();
   checkUserGuess();
-  checkRange(lowNumber, highNumber);
+  checkRange();
   $(".guess-text").css("visibility", "visible");
 })
 
@@ -44,14 +44,6 @@ function generateRandomNumber(lowNumber, highNumber){
  return Math.floor(Math.random() * (lowNumber - highNumber)) + highNumber;
 }
 
-function getMinUserInput(){
-  return parseInt(minRange.value);
-}
-
-function getMaxUserInput(){
-  return parseInt(maxRange.value);
-}
-
 function checkUserGuess(){
   var guessedNumber = parseInt(userGuess.value);
   userGuessText.innerText = guessedNumber;
@@ -60,7 +52,7 @@ function checkUserGuess(){
   } else if (guessedNumber < randomNumber){
     userHint.innerText = "That is too low";
   } else if (guessedNumber === randomNumber){
-      userHint.innerText = "You got it! Hit reset to play again!";
+      userHint.innerText = "You got it! Now guess between " + lowNumber + " & " + highNumber + ", or hit reset to enter range";
       increaseNumberRange(lowNumber, highNumber);
     } else {
       userHint.innerText = "*ahem* That's not a number";
@@ -80,12 +72,11 @@ function checkRange(){
 
 function increaseNumberRange(){
   var guessedNumber = parseInt(userGuess.value);
-  var newLowNumber;
-  var newHighNumber;
   if (guessedNumber === randomNumber) {
-    highNumber = newHighNumber = highNumber + 10;
-    lowNumber = newLowNumber = lowNumber - 10;
-    randomNumber = newNumber = generateRandomNumber(lowNumber, highNumber);
+    highNumber = highNumber + 10;
+    lowNumber = lowNumber - 10;
+    randomNumber = generateRandomNumber(lowNumber, highNumber);
+    userHint.innerText = "You got it! Now guess between " + lowNumber + " & " + highNumber + ", or hit reset to enter range";
     console.log(highNumber);
     console.log(lowNumber);
     console.log(randomNumber);
