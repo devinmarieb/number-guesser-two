@@ -54,6 +54,7 @@ p {
   font-size: 20pt;
   margin: 20px;
   text-align: center;
+  color: #404041;
 }
 
 .user-guess {
@@ -79,6 +80,10 @@ button {
   margin: 20px;
   border-radius: 20px;
   opacity: .5
+}
+
+button:hover {
+  background-color: #EB008B;
 }
 
 .reset {
