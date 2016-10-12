@@ -50,6 +50,14 @@ function rangeError(){
   }
 }
 
+function checkRange(){
+  var guessedNumber = parseInt(userGuess.value);
+  if (guessedNumber < lowNumber || guessedNumber > highNumber){
+    userGuessText.innerText = "oops!";
+    userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
+  }
+}
+
 function checkUserGuess(){
   var guessedNumber = parseInt(userGuess.value);
   userGuessText.innerText = guessedNumber;
@@ -66,13 +74,6 @@ function checkUserGuess(){
   }
 }
 
-function checkRange(){
-  var guessedNumber = parseInt(userGuess.value);
-  if (guessedNumber < lowNumber || guessedNumber > highNumber){
-    userGuessText.innerText = "oops!";
-    userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
-  }
-}
 function winTheGame(){
   userHint.innerText = "You got it! Now guess between " + lowNumber + " & " + highNumber + ", or hit reset to enter range";
   minRange.value = lowNumber;
@@ -94,20 +95,11 @@ function increaseNumberRange(){
   }
 }
 
-function resetButtonEnable(){
-  resetButton.disabled = false;
-  $(".reset").css("opacity", 1);
-}
-
-function clearButtonDisable(){
-  clearButton.disabled = true;
-  userGuess.value = "";
-  $(".clear").css("opacity", .5);
-}
-
-function clearButtonEnable(){
-  clearButton.disabled = false;
-  $(".clear").css("opacity", 1);
+function disableRange(){
+  $(".range-container").css("opacity", .5);
+  submitRangeButton.disabled = true;
+  minRange.disabled = true;
+  maxRange.disabled = true;
 }
 
 function guessSectionEnable(){
@@ -117,16 +109,27 @@ function guessSectionEnable(){
   $(".submit").css("opacity", 1);
 }
 
-function disableRange(){
-  $(".range-container").css("opacity", .5);
-  submitRangeButton.disabled = true;
-  minRange.disabled = true;
-  maxRange.disabled = true;
+function clearButtonEnable(){
+  clearButton.disabled = false;
+  $(".clear").css("opacity", 1);
+}
+
+function clearButtonDisable(){
+  clearButton.disabled = true;
+  userGuess.value = "";
+  $(".clear").css("opacity", .5);
+}
+
+function resetButtonEnable(){
+  resetButton.disabled = false;
+  $(".reset").css("opacity", 1);
 }
 
 function guessButtonDisable(){
   guessButton.disabled = "true";
+  userGuess.disabled = "true";
   $(".submit").css("opacity", .5);
+  $(".guess").css("opacity", .5);
 }
 
 function resetProgram() {
