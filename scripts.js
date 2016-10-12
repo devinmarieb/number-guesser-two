@@ -21,7 +21,6 @@ submitRangeButton.addEventListener("click", function(){
   resetButtonEnable();
   userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
   console.log(randomNumber);
-  rangeError();
 })
 
 guessButton.addEventListener("click", function(){
@@ -41,13 +40,6 @@ resetButton.addEventListener("click", function(){
 
 function generateRandomNumber(lowNumber, highNumber){
   return Math.floor(Math.random() * (lowNumber - highNumber)) + highNumber;
-}
-
-function rangeError(){
-  if (minRange || maxRange === "") {
-    userHint.innerText = "What are you doing? Hit reset to enter a range."
-    guessButtonDisable();
-  }
 }
 
 function checkRange(){

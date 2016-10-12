@@ -86,6 +86,10 @@ button:hover {
   background-color: #EB008B;
 }
 
+button:focus {
+  outline: none;
+}
+
 .reset {
   display: block;
   margin: auto;
