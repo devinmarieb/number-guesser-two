@@ -10,13 +10,6 @@ var maxRange = document.querySelector(".max-guess");
 
 var lowNumber;
 var highNumber;
-var lowNumber;
-var highNumber;
-var newLowNumber;
-var newHighNumber;
-
-var randomNumber;
-
 
 $(".guess-text").css("visibility", "hidden");
 
@@ -24,10 +17,10 @@ submitRangeButton.addEventListener("click", function(){
   lowNumber = getMinUserInput();
   highNumber = getMaxUserInput();
   randomNumber = generateRandomNumber(lowNumber, highNumber);
-  console.log(randomNumber)
   guessSectionEnable();
   disableRange();
   userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
+  console.log(randomNumber);
 })
 
 guessButton.addEventListener("click", function(){
@@ -75,27 +68,27 @@ function checkUserGuess(){
   }
 
 function checkRange(){
-  var minNumber = lowNumber;
-  var maxNumber = highNumber;
   var guessedNumber = parseInt(userGuess.value);
-  if (guessedNumber < minNumber){
+  if (guessedNumber < lowNumber){
     userGuessText.innerText = "oops!";
-    userHint.innerText = "Guess a number between " + minNumber + " & " + maxNumber;
-  } else if (guessedNumber > maxNumber){
+    userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
+  } else if (guessedNumber > highNumber){
     userGuessText.innerText = "oops!";
-    userHint.innerText = "Guess a number between " + minNumber + " & " + maxNumber;
+    userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
   }
 }
 
 function increaseNumberRange(){
   var guessedNumber = parseInt(userGuess.value);
+  var newLowNumber;
+  var newHighNumber;
   if (guessedNumber === randomNumber) {
     highNumber = newHighNumber = highNumber + 10;
     lowNumber = newLowNumber = lowNumber - 10;
-    var newNumber = generateRandomNumber(lowNumber, highNumber);
+    randomNumber = newNumber = generateRandomNumber(lowNumber, highNumber);
     console.log(highNumber);
     console.log(lowNumber);
-    console.log(newNumber);
+    console.log(randomNumber);
   }
 }
 
