@@ -18,7 +18,7 @@ submitRangeButton.addEventListener("click", function(){
   randomNumber = generateRandomNumber(lowNumber, highNumber);
   guessSectionEnable();
   rangeError();
-
+  minMaxError();
   disableRange();
   resetButtonEnable();
   console.log(randomNumber);
@@ -50,6 +50,14 @@ function rangeError(){
     guessButtonDisable();
   } else {
     userHint.innerText = "Guess a number between " + lowNumber + " & " + highNumber;
+  }
+}
+
+function minMaxError(){
+  if(minRange.value > maxRange.Value || maxRange.value < minRange.value){
+    userGuessText.innerText = "oops!";
+    userHint.innerText = "That's not how numbers work";
+    guessButtonDisable();
   }
 }
 
