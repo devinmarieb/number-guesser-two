@@ -22,6 +22,7 @@ submitRangeButton.addEventListener("click", function(){
   disableRange();
   resetButtonEnable();
   console.log(randomNumber);
+  console.log(lowNumber, highNumber);
 })
 
 guessButton.addEventListener("click", function(){
@@ -54,7 +55,7 @@ function rangeError(){
 }
 
 function minMaxError(){
-  if(minRange.value > maxRange.Value || maxRange.value < minRange.value){
+  if(lowNumber > highNumber || highNumber < lowNumber){
     userGuessText.innerText = "oops!";
     userHint.innerText = "That's not how numbers work";
     guessButtonDisable();
